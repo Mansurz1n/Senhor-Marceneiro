@@ -1,0 +1,40 @@
+
+/* Carrossel responsivo */
+#banner img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+#banner .carousel-item {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+/* Adaptar para telas pequenas */
+@media (max-width: 768px) {
+    #banner img {
+        max-height: 300px;
+    }
+    
+    #banner .carousel-caption {
+        padding-bottom: 20px;
+    }
+}
+
+/* Adaptar para telas muito pequenas */
+@media (max-width: 576px) {
+    #banner img {
+        max-height: 200px;
+    }
+    
+    #banner .carousel-caption h5 {
+        font-size: 18px;
+    }
+    
+    #banner .carousel-caption p {
+        font-size: 14px;
+    }
+}
