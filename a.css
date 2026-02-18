@@ -1,40 +1,69 @@
-
-/* Carrossel responsivo */
-#banner img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: cover;
-    display: block;
+/* CONFIGURAÇÃO DO BANNER "TELA CHEIA" */
+#bannerPrincipal {
+    /* Remove margens para encostar na navbar */
+    margin-top: 0;
 }
 
-#banner .carousel-item {
-    max-height: 500px;
-    overflow: hidden;
+.banner-img {
+    /* Altura para Desktop: 85% da altura da tela */
+    height: 85vh; 
+    object-fit: cover; /* Corta as sobras para não esticar a imagem */
+    filter: brightness(0.8); /* Escurece levemente a imagem para o texto branco aparecer melhor */
 }
 
-/* Adaptar para telas pequenas */
+/* Centralizar e aumentar texto do banner */
+.carousel-caption {
+    bottom: 30%; /* Sobe o texto para o meio */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra preta para ler em qualquer fundo */
+}
+
+/* Efeito ao passar o mouse nos cards */
+.hover-card {
+    transition: transform 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px); /* Card sobe um pouquinho */
+}
+
+
+    .btn-whatsapp:hover {
+        background-color: #128c7e; /* Verde mais escuro ao passar mouse */
+        color: white;
+        transform: scale(1); /* Aumenta um pouquinho */
+    }
+
+    .btn-whatsapp {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 999; /* Garante que fique em cima de tudo */
+        background-color: #25d366; /* Verde WhatsApp */
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%; /* Faz ficar redondo */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+/* RESPONSIVIDADE (Celular) */
 @media (max-width: 768px) {
-    #banner img {
-        max-height: 300px;
+    .banner-img {
+        height: 50vh; /* No celular, usa apenas 50% da altura */
     }
     
-    #banner .carousel-caption {
-        padding-bottom: 20px;
+    .carousel-caption h1 {
+        font-size: 1.5rem; /* Diminui a fonte do título */
     }
-}
+    
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+    /* Botão WhatsApp Flutuante */
 
-/* Adaptar para telas muito pequenas */
-@media (max-width: 576px) {
-    #banner img {
-        max-height: 200px;
-    }
-    
-    #banner .carousel-caption h5 {
-        font-size: 18px;
-    }
-    
-    #banner .carousel-caption p {
-        font-size: 14px;
-    }
 }
+    
