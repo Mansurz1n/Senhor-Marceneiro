@@ -1,37 +1,165 @@
 /* =========================================
-   1. CONFIGURAÇÃO DO BANNER (Hero Section)
+   1. VARIÁVEIS E ESTILOS GLOBAIS
    ========================================= */
-#bannerPrincipal {
-    margin-top: 0;
+:root {
+    /* Cores de Marca (Baseadas no seu Logo) */
+    --cor-primaria: #6FA84F;      /* Verde do Logo */
+    --cor-primaria-hover: #4A2E1F; /* Marrom do Logo */
+    --cor-laranja: #F37021;       /* Laranja Industrial para Destaque */
+    
+    /* Estrutura */
+    --cor-navbar: #212529;       
+    --cor-fundo: #F9F9F9;
+    --cor-texto: #333333;
+    --cor-branco: #FFFFFF;
+
+    --cor-cortecloud: #0077b6;
+    
+    /* Status */
+    --cor-whatsapp: #25D366;
+    --cor-whatsapp-hover: #128c7e;
 }
 
+#cortecloud-feature{
+    background-color: var(--cor-cortecloud)!important;
+    color: white;
+}
+
+.secao-contato-whats{
+    background-color: var(--cor-whatsapp)!important;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave para os links do menu */
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================
+   2. NAVEGAÇÃO (NAVBAR)
+   ========================================= */
+.navbar {
+    background-color: var(--cor-navbar) !important;
+    border-bottom: 4px solid var(--cor-primaria);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* =========================================
+   3. BANNER PRINCIPAL (CAROUSEL)
+   ========================================= */
 .banner-img {
-    height: 80vh; /* Mantém o banner ocupando 80% da tela */
-    object-fit: cover; /* Impede a imagem de distorcer */
-    filter: brightness(0.9); /* Leve escurecida para ler o texto melhor */
+    height: 80vh; /* Ocupa 80% da altura da tela */
+    object-fit: cover;
+    filter: brightness(0.8);
 }
 
-/* Ajuste para celular */
 @media (max-width: 768px) {
     .banner-img {
         height: 50vh;
     }
-    
-    .carousel-caption h1 {
-        font-size: 1.5rem;
-    }
 }
 
 /* =========================================
-   2. BOTÃO WHATSAPP FLUTUANTE
+   4. CATÁLOGO E ABAS (NAV-PILLS)
+   ========================================= */
+#catalogo {
+    padding: 60px 0;
+}
+
+.nav-pills .nav-link {
+    font-weight: 600;
+    color: var(--cor-texto);
+    transition: 0.3s;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--cor-primaria) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.border-warning {
+    border-color: var(--cor-laranja) !important; /* Borda laranja nas abas */
+}
+
+/* =========================================
+   5. SECÇÕES ESPECIAIS (CORTECLOUD E CTA)
+   ========================================= */
+/* Secção CorteCloud */
+#cortecloud-feature {
+    background-color: #0077b6 !important; /* Azul tecnológico padrão do CorteCloud */
+    color: white;
+}
+
+#cortecloud-feature img {
+    transition: transform 0.5s ease;
+}
+
+#cortecloud-feature img:hover {
+    transform: scale(1.03);
+}
+
+/* Secção de Contato (Entre em contato) */
+.bg-primary {
+    background-color: var(--cor-primaria) !important; /* Usa o verde do logo */
+}
+
+/* =========================================
+   6. LOCALIZAÇÃO E RODAPÉ
+   ========================================= */
+#lojas {
+    border-top: 5px solid var(--cor-primaria);
+}
+
+footer {
+    font-size: 0.9rem;
+}
+
+/* Correção dos nomes e remoção da chaveta extra */
+#catalogo .badge {
+    color: var(--cor-branco) !important;
+}
+
+#catalogo h2 {
+    color: var(--cor-primaria);
+}
+
+#catalogo p {
+    color: var(--cor-primaria-hover);
+}
+
+#catalogo p strong {
+    color: var(--cor-laranja);
+}
+
+
+.carousel-caption h1{
+    color: var(--cor-primaria);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption p{
+    color: var(--cor-fundo);
+    font-weight: 500;
+}
+
+
+/* =========================================
+   7. UI FLUTUANTE (WHATSAPP)
    ========================================= */
 .btn-whatsapp {
     position: fixed;
     bottom: 25px;
     right: 25px;
     z-index: 1000;
-    /* Mantive o verde aqui pois é a cor oficial do Zap, independente do site */
-    background-color: #25d366; 
+    background-color: var(--cor-whatsapp)!important;
     color: white;
     width: 60px;
     height: 60px;
@@ -46,54 +174,7 @@
 }
 
 .btn-whatsapp:hover {
-    background-color: #128c7e;
+    background-color: var(--verde-whatsapp-hover);
     color: white;
     transform: scale(1.1);
-}
-
-/* =========================================
-   3. ESTILO DOS ÍCONES (Círculos)
-   ========================================= */
-/* Apenas tamanho e formato, sem forçar cor de fundo */
-.icon-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-    margin: 0 auto 15px auto;
-    transition: all 0.3s ease;
-}
-
-.card-solucao:hover {
-    text-decoration: none;
-    transform: translateY(-5px);
-}
-
-/* =========================================
-   4. ESTILO DAS ABAS (Catálogo)
-   ========================================= */
-.nav-pills .nav-link {
-    font-weight: 600;
-    margin: 0 5px;
-    color: #555; /* Cinza padrão */
-}
-
-.nav-pills .nav-link.active {
-    /* Usa a cor padrão do Bootstrap (Azul ou a cor da classe que vc usar) */
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* =========================================
-   5. AJUSTES GERAIS
-   ========================================= */
-.navbar-brand {
-    font-weight: bold;
-}
-
-footer {
-    font-size: 0.9rem;
 }
